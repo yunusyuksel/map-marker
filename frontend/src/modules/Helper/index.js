@@ -3,5 +3,4 @@
 
 export {getAbsoluteApiUrl} from "./urlHelper"
 
-export {convertPixelToCoordinate} from "./mapHelper"
 
