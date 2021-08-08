@@ -144,7 +144,7 @@ const WorldMap = (props) => {
       </svg>
       <MarkerPopup coordinate={coordinate} handleClose={handleClose} handleClickOpen={handleClickOpen} popUpOpen={popUpOpen}/>
       <MarkerDetail selectedMarker={selectedMarker} handleClose={handleDetailPopupClose} popupOpen={detailPopupOpen} />
-      
+     
       </div>
   )
 }

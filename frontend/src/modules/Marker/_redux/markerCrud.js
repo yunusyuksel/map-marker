@@ -10,11 +10,11 @@ const PLACE_DETAIL_URL = (uuid) => getAbsoluteApiUrl(`/api/places/${uuid}/`)
 
 
 // api constants
-
 export const PLACES= "places"
 
+
+/* all fetch(get) api operations are done with this function. Depending on different resource, different logic can be implemented */
 export function fetch(resource,params){
-    
     switch(resource){
         case PLACES:
             return axios.get(PLACE_ROOT_URL)
@@ -24,7 +24,10 @@ export function fetch(resource,params){
 }
 
 
-
+/* 
+    all the http-post operations are implemented here. Depending on different resources, different logic can be implemented.
+    return http post response or throw exception if non-defined resource is provided.
+*/
 export function post(resource,body){
     switch(resource){
         case PLACES:
@@ -42,14 +45,16 @@ export function post(resource,body){
             for(var key of formData.keys()){
                 console.log(key,formData.get(key))
             }
-
-           
-
             return axios.post(PLACE_ROOT_URL,formData,config)
         default:
             throw 'Resource not registered'
     }
 }
+
+/* 
+    All post-delete operations are implemented here. Depending on different resources, different logic can be implemented
+    return http post response or throw exception if non-defined resource is provided.
+*/
 
 export function remove(resource,param){
     switch(resource){
@@ -61,6 +66,10 @@ export function remove(resource,param){
     }
 }
 
+/*
+    http-patch operations are implemented here. Depending on different resources, different logic can be implemented
+    return http post response or throw exception if non-defined resource is provided.
+*/
 export function patch(resource,body){
     switch(resource){
         case PLACES:

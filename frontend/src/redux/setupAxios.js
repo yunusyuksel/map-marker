@@ -1,13 +1,10 @@
 
 export default function setupAxios(axios, store) {
-    axios.interceptors.request.use(
 
-        
+    /* Prompt the api request object on console for debugging purpose (only for development environment).*/
+    axios.interceptors.request.use(
         config=>{
-            
-        
         if(process.env.NODE_ENV==='development'){
-            
             console.log(`%cDev:Config: \n`,"color:green; font-weight:bold; font-size:11.5px",config)
             
         }
@@ -15,7 +12,7 @@ export default function setupAxios(axios, store) {
     },
     err => Promise.reject(err)
     )
-
+    /* Prompt the api response object on console for debugging purpose (only for development environment) */
     axios.interceptors.response.use(function (response) {
     
         if(process.env.NODE_ENV==='development')

@@ -7,7 +7,7 @@ import { rootReducer,rootSaga } from "./rootReducer";
 
 const sagaMiddleware = createSagaMiddleware();
 
-
+/*  Create middleware for the redux-store*/
 const middleware = [
     ...getDefaultMiddleware({
         immutableCheck: false,
@@ -19,6 +19,7 @@ const middleware = [
 ];
 
 
+/* Create store with middleware,reducers and development tools for watching the state activities */
 const store = configureStore({
     reducer:rootReducer,
     middleware,
@@ -27,6 +28,7 @@ const store = configureStore({
 })
 
 
+/* Trigger main saga */
 sagaMiddleware.run(rootSaga);
 
 
